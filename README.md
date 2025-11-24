@@ -14,6 +14,7 @@ DOOM2 with
 * [Woof](https://fabiangreffrath.github.io/woof/)
 * [Going Down Turbo](https://doomwiki.org/wiki/Going_Down:_Turbo)
 * [The high resolution Doom sound effects pack](https://www.perkristian.net/game_doom-sfx.shtml)
+* [Doom 2 Minor Sprite Fixing Project](https://www.doomworld.com/forum/topic/62403-doom-2-minor-sprite-fixing-project-v20-release-updated-112822/)
 
 Using a powerful text editor that auto-completes file paths and supports json schemas (and using the
 provided rundoompresets_schema.json), I translate that to the following json configuration file:
@@ -31,6 +32,7 @@ provided rundoompresets_schema.json), I translate that to the following json con
             "iwad": "DOOM2",
             "file": [
                 "~/pwads/pk_doom_sfx/pk_doom_sfx_20120224.wad",
+                "~/pwads/sprfix20/D2SPFX20.WAD",
                 "~/pwads/gdturbo/gdturbo.wad"
             ],
             "deh": [

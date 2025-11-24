@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+if [ ! -f "$RUNDOOMPRESETS" ]; then
+    echo "Please set \$RUNDOOMPRESETS to the path to the rundoom presets file."
+    exit 1
+fi
+
+preset="$1"
+
+if [[ "$preset" == "" ]]; then
+    preset=$(jq -r 'keys[]' "$RUNDOOMPRESETS" | \
+    fzf --preview "jq .{} $RUNDOOMPRESETS" --preview-window=right,75%)
+fi
+
+if [[ "$preset" == "" ]]; then
+    echo No preset specified or chosen.
+    exit 0
+fi
+
+if [[ $(jq "has(\"$preset\")" "$RUNDOOMPRESETS") == "false" ]]; then
+    echo Preset not found.
+    exit 1
+fi
+
+engine=$(jq -r ".$preset.engine" "$RUNDOOMPRESETS")
+
+if [ ! -x "$engine" ]; then
+    echo Engine not found.
+fi
+
+declare -a args=()
+
+iwad=$(jq -r ".$preset.iwad" "$RUNDOOMPRESETS");
+
+if [[ "$iwad" != "null" ]]; then
+    args+=("-iwad" "$iwad")
+fi
+
+if [[ "$(jq ".$preset | has(\"file\")" "$RUNDOOMPRESETS")" == "true" ]]; then
+    # https://stackoverflow.com/a/45534924
+    readarray -t wads < <(jq -r ".$preset.file[]" "$RUNDOOMPRESETS")
+    # https://serverfault.com/a/477506
+    if [ ${#wads[@]} != 0 ]; then
+        args+=("-file")
+        args=( "${args[@]}" "${wads[@]}")
+    fi
+fi
+
+if [[ "$(jq ".$preset | has(\"deh\")" "$RUNDOOMPRESETS")" == "true" ]]; then
+    readarray -t dehacked < <(jq -r ".$preset.deh[]" "$RUNDOOMPRESETS")
+    if [ ${#dehacked[@]} != 0 ]; then
+        args+=("-deh")
+        args=( "${args[@]}" "${dehacked[@]}")
+    fi
+fi
+
+# DoomRunner does a separate -bex, so we will too.
+if [[ "$(jq ".$preset | has(\"bex\")" "$RUNDOOMPRESETS")" == "true" ]]; then
+    readarray -t bex < <(jq -r ".$preset.bex[]" "$RUNDOOMPRESETS")
+    if [ ${#bex[@]} != 0 ]; then
+        args+=("-bex")
+        args=( "${args[@]}" "${bex[@]}")
+    fi
+fi
+
+# Note how we safely build up the args array, as recommended here
+# https://mywiki.wooledge.org/BashFAQ/050
+"$engine" "${args[@]}"

@@ -1,0 +1,8 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": ["rundoompresets.json"],
+            "url": "./rundoompresets_schema.json"
+        }
+    ]
+}

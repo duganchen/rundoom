@@ -1,0 +1,49 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "id": "http://localhost:8000/rundoompresets.json",
+    "title": "rundoom preset",
+    "description": "A preset for the rundoom launcher",
+    "type": "object",
+    "patternProperties": {
+        "^[A-za-z0-9]+$": {
+            "description": "rundoom script argument",
+            "type": "object",
+            "properties": {
+                "iwad": {
+                    "description": "-iwad",
+                    "type": "string"
+                },
+                "engine": {
+                    "description": "EXE",
+                    "type": "string"
+                },
+                "file": {
+                    "description": "-file",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "deh": {
+                    "description": "-deh",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "bex": {
+                    "description": "-bex",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "engine"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}

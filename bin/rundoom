@@ -77,8 +77,10 @@ if [[ "$(jq ".$preset | has(\"bex\")" "$RUNDOOMPRESETS")" == "true" ]]; then
 	fi
 fi
 
+# Any remaining arguments get passed to the engine.
+# e.g. rundoom gdturbo -- -playdemo map01.lmp
 args=("${args[@]}" "$@")
 
 # Note how we safely build up the args array, as recommended here
 # https://mywiki.wooledge.org/BashFAQ/050
-echo "$engine" "${args[@]}"
+"$engine" "${args[@]}"

@@ -3,4 +3,4 @@ function _complete_rundoom
         jq -r 'keys[]' $RUNDOOMPRESETS
     end
 end
-complete -c rundoom -a '(_complete_rundoom)' -f
+complete -c rundoom -f -s p -ra '(_complete_rundoom)'

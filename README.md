@@ -21,25 +21,27 @@ provided rundoompresets_schema.json), I translate that to the following json con
 
     {
         "heretic": {
-            "engine": "~/Applications/inter-heretic-8.3-linux.appimage",
+            "engine": "/home/dugan/Applications/inter-heretic-8.3-linux.appimage",
             "file": [
-                "~/pwads/HRSPFX10/HRSPFX10.WAD",
-                "~/pwads/HRSPFX10/HRWIDE10.WAD"
+                "/home/dugan/archives/pwads/HRSPFX10/HRSPFX10.WAD",
+                "/home/dugan/archives/pwads/HRSPFX10/HRWIDE10.WAD"
             ]
         },
         "gdturbo": {
-            "engine": "~/Applications/Woof-15.3.0-Linux.appimage",
+            "engine": "/home/dugan/Applications/Woof-15.3.0-Linux.appimage",
             "iwad": "DOOM2",
             "file": [
-                "~/pwads/pk_doom_sfx/pk_doom_sfx_20120224.wad",
-                "~/pwads/sprfix20/D2SPFX20.WAD",
-                "~/pwads/gdturbo/gdturbo.wad"
+                "/home/dugan/archives/pwads/pk_doom_sfx/pk_doom_sfx_20120224.wad",
+                "/home/dugan/archives/pwads/sprfix20/D2SPFX20.WAD",
+                "/home/dugan/archives/pwads/gdturbo/gdturbo.wad"
             ],
             "deh": [
-                "~/pwads/sprfix20/D2SPFX20.WAD"
+                "/home/dugan/archives/pwads/sprfix20/D2SPFX20.WAD"
             ]
         }
     }
+
+(Variables and tildes are not supported for the paths; sorry).
 
 The command-line format is:
 

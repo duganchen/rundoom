@@ -36,7 +36,7 @@ if [[ $(jq "has(\"$preset\")" "$RUNDOOMPRESETS") == "false" ]]; then
 	exit 1
 fi
 
-engine=$(jq -r ".$preset.engine" "$RUNDOOMPRESETS")
+engine="$(jq -r ".$preset.engine" "$RUNDOOMPRESETS")"
 
 if [ ! -x "$engine" ]; then
 	echo Engine not found.
@@ -44,7 +44,7 @@ fi
 
 declare -a args=()
 
-iwad=$(jq -r ".$preset.iwad" "$RUNDOOMPRESETS")
+iwad="$(jq -r ".$preset.iwad" "$RUNDOOMPRESETS")"
 
 if [[ "$iwad" != "null" ]]; then
 	args+=("-iwad" "$iwad")

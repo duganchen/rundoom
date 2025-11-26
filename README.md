@@ -41,11 +41,18 @@ provided rundoompresets_schema.json), I translate that to the following json con
         }
     }
 
-I then use I use FISH's completion system (which respects MRU) to choose and launch a preset for the *rundoom* command:
+The command-line format is:
+
+    rundoom [-p <preset>] -- <any extra arguments>
+
+The -p (preset) option is integrated with FISH's completion system. This is the intended way to use rundoom.
+
+You'll notice that the next time you use rundoom, FISH will autocomplete the command to the last preset
+you used.
 
 ![FISH completion](screenshots/rundoom_completion.png)
 
-Running *rundoom* without arguments gives you a picker. Looks cool, but really an experiment that I threw in. The intended usage is to take advantage of FISH's completion system:
+Running *rundoom* without arguments gives you a picker. Looks cool, but really just an experiment that I threw in.
 
 ![Picker](screenshots/rundoom_picker.png)
 

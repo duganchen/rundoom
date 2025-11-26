@@ -31,7 +31,7 @@ if [[ "$preset" == "" ]]; then
 	exit 0
 fi
 
-if [[ $(jq "has(\"$preset\")" "$RUNDOOMPRESETS") == "false" ]]; then
+if [[ "$(jq "has(\"$preset\")" "$RUNDOOMPRESETS")" == "false" ]]; then
 	echo Preset not found.
 	exit 1
 fi

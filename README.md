@@ -67,7 +67,7 @@ Copy bin/rundoom to a directory to ~/.local/bin, which you should have in your P
 Set the RUNDOOMPRESETS to be the path to the json file you're using for the presets. If the file is
 ~/Documents/rundoom/rundoompresets.json, then you do:
 
-    set -x RUNDOOMPRESETS ~/Documents/rundoom/rundoompresets.json,
+    set -x RUNDOOMPRESETS ~/Documents/rundoom/rundoompresets.json
 
 ## Requirements
 

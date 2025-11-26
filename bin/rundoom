@@ -77,6 +77,13 @@ if [[ "$(jq ".$preset | has(\"bex\")" "$RUNDOOMPRESETS")" == "true" ]]; then
 	fi
 fi
 
+if [[ "$(jq ".$preset | has(\"extra\")" "$RUNDOOMPRESETS")" == "true" ]]; then
+	readarray -t extra < <(jq -r ".$preset.extra[]" "$RUNDOOMPRESETS")
+	if [ ${#extra[@]} != 0 ]; then
+		args=("${args[@]}" "${extra[@]}")
+	fi
+fi
+
 # Any remaining arguments get passed to the engine.
 # e.g. rundoom gdturbo -- -playdemo map01.lmp
 args=("${args[@]}" "$@")

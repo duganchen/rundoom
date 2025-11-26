@@ -37,6 +37,12 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                "extra": {
+                    "description": "any extra command-line arguments",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             },
             "required": [

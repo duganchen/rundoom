@@ -10,7 +10,7 @@ Heretic with:
 * [International Heretic](https://jnechaevsky.github.io/inter-doom/)
 * [Heretic Minor Sprite Fixing and Widescreen-Friendly Project](https://www.doomworld.com/forum/topic/64778-heretic-minor-sprite-fixing-and-widescreen-friendly-project-v10-release/)
 
-DOOM2 with 
+DOOM2 with:
 * [Woof](https://fabiangreffrath.github.io/woof/)
 * [Going Down Turbo](https://doomwiki.org/wiki/Going_Down:_Turbo)
 * [The high resolution Doom sound effects pack](https://www.perkristian.net/game_doom-sfx.shtml)

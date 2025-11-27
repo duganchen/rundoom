@@ -73,3 +73,20 @@ Set the RUNDOOMPRESETS to be the path to the json file you're using for the pres
 
 * [jq](https://jqlang.org/)
 * [fzf](https://junegunn.github.io/fzf/)
+
+## Misc Notes
+
+I'm running Fedora, Steam from RPMFusion, and DOOM from Steam. I have the following conf file in ~/.config/environment.d:
+
+    DOOMWADPATH="$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/base:$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/base/doom2:$HOME/.local/share/Steam/steamapps/common/Heretic + Hexen/dos/base/hexen:$HOME/.local/share/Steam/steamapps/common/Heretic + Hexen/dos/base/hexendk:$HOME/.local/share/Steam/steamapps/common/Heretic + Hexen/dos/base/heretic:$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/base/tnt:$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/base/plutonia:$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/base/master/wads:$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/rerelease":$HOME/.local/share/Steam/steamapps/common/Heretic + Hexen
+
+Soundfonts go in ~/.local/share/soundfont, as documented here:
+
+https://github.com/fabiangreffrath/woof/wiki/Getting-Started#using-soundfonts-2
+
+I recommend at least trying the following two:
+
+    * [Reality](https://falcosoft.hu/softwares.html#midiplayer)
+    * [Arachno](https://www.arachnosoft.com/main/soundfont.php)
+
+Or give [Nuked](https://github.com/nukeykt/Nuked-SC55) a try.

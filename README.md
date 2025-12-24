@@ -76,17 +76,20 @@ Set the RUNDOOMPRESETS to be the path to the json file you're using for the pres
 
 ## Misc Notes
 
-I'm running Fedora, Steam from RPMFusion, and DOOM from Steam. I have the following conf file in ~/.config/environment.d:
+International DOOM, Woof and UZDOOM will all search for IWADS in ~/.local/share/games/doom. As this is fairly standard, I recommend putting all your IWADs there and setting the DOOMWADDIR environment variable (for ports that don't look there by default) to that.
 
-    DOOMWADPATH="$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/base:$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/base/doom2:$HOME/.local/share/Steam/steamapps/common/Heretic + Hexen/dos/base/hexen:$HOME/.local/share/Steam/steamapps/common/Heretic + Hexen/dos/base/hexendk:$HOME/.local/share/Steam/steamapps/common/Heretic + Hexen/dos/base/heretic:$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/base/tnt:$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/base/plutonia:$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/base/master/wads:$HOME/.local/share/Steam/steamapps/common/Ultimate Doom/rerelease":$HOME/.local/share/Steam/steamapps/common/Heretic + Hexen
-
-Soundfonts go in ~/.local/share/soundfont, as documented here:
+Woof will look for soundfonts ~/.local/share/soundfont, as documented here:
 
 https://github.com/fabiangreffrath/woof/wiki/Getting-Started#using-soundfonts-2
 
-I recommend at least trying the following two:
+My recommendation is to store your soundfonts there, and then set up your other source ports (by, for example, editing Internaational DOOM and UZDOOM's ini files) accordingly.
+
+I recommend at least trying the following:
 
     * [Reality](https://falcosoft.hu/softwares.html#midiplayer)
     * [Arachno](https://www.arachnosoft.com/main/soundfont.php)
+    * {GeneralUser GS}(https://schristiancollins.com/generaluser.php)
+
+These are good retrogaming soundfonts in general, because they have GS support.
 
 Or give [Nuked](https://github.com/nukeykt/Nuked-SC55) a try.

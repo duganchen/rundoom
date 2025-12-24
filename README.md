@@ -76,7 +76,7 @@ Set the RUNDOOMPRESETS to be the path to the json file you're using for the pres
 
 ## Misc Notes
 
-International DOOM, Woof and UZDOOM will all search for IWADS in ~/.local/share/games/doom. As this is fairly standard, I recommend putting all your IWADs there and setting the DOOMWADDIR environment variable (for ports that don't look there by default) to that.
+Put IWADs in the standard location (/usr/share/games/doom) and set DOOMWADDIR to that if you're using a source port that doesn't already look there.
 
 Woof will look for soundfonts ~/.local/share/soundfont, as documented here:
 

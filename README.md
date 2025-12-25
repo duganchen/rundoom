@@ -76,7 +76,8 @@ Set the RUNDOOMPRESETS to be the path to the json file you're using for the pres
 
 ## Misc Notes
 
-Put IWADs in the standard location (/usr/share/games/doom) and set DOOMWADDIR to that if you're using a source port that doesn't already look there.
+Put IWADs in the standard location (/usr/share/games/doom) and set DOOMWADDIR to that to point to that path (SLADE, for one, still needs that
+envvar)
 
 Woof will look for soundfonts ~/.local/share/soundfont, as documented here:
 

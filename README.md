@@ -76,14 +76,25 @@ Set the RUNDOOMPRESETS to be the path to the json file you're using for the pres
 
 ## Misc Notes
 
-Put IWADs in the standard location (/usr/share/games/doom) and set DOOMWADDIR to that to point to that path (SLADE, for one, still needs that
-envvar)
+Put IWADs anywhere (~/.local/share/games/doom is as good a place as any)
+and set DOOMWADDIR to that directory.
 
-Woof will look for soundfonts ~/.local/share/soundfont, as documented here:
+Most software will find your IWADs if you just put them in /usr/share/games/doom but there are exceptions. As of this writing, SLADE is one.
+Everything recognizes DOOMWADDIR.
 
-https://github.com/fabiangreffrath/woof/wiki/Getting-Started#using-soundfonts-2
+On my system, with [DOOM + DOOM II](https://store.steampowered.com/app/2280/DOOM__DOOM_II/) and [Heretic + Hexen](https://store.steampowered.com/app/3286930/Heretic__Hexen/) installed, the specific IWADs are:
 
-My recommendation is to store your soundfonts there, and then set up your other source ports (by, for example, editing Internaational DOOM and UZDOOM's ini files) accordingly.
+* ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/DOOM.WAD
+* ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/doom2/DOOM2.WAD
+* ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/plutonia/PLUTONIA.WAD
+* ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/tnt/TNT.WAD
+* ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/heretic/HERETIC.WAD
+* ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/hexen/HEXEN.WAD
+* ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/hexendk/HEXDD.WAD
+
+Put soundfonts in ~/.local/share/soundfonts. WOOF will find them there.
+From what I'm reading of its source code, DOSBOX Staging will too. Then
+set everything else up to find them in that directory.
 
 I recommend at least trying the following:
 
@@ -91,6 +102,6 @@ I recommend at least trying the following:
     * [Arachno](https://www.arachnosoft.com/main/soundfont.php)
     * {GeneralUser GS}(https://schristiancollins.com/generaluser.php)
 
-These are good retrogaming soundfonts in general, because they have GS support.
+Apart from working well with DOOM, they are also good retrogaming soundfonts in general, because they have GS support.
 
 Or give [Nuked](https://github.com/nukeykt/Nuked-SC55) a try.

@@ -5,7 +5,7 @@
     "description": "A preset for the rundoom launcher",
     "type": "object",
     "patternProperties": {
-        "^[A-za-z0-9]+$": {
+        "^[A-za-z0-9_]+$": {
             "description": "rundoom script argument",
             "type": "object",
             "properties": {

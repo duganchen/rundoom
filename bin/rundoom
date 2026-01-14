@@ -44,6 +44,16 @@ fi
 
 declare -a args=()
 
+# "extra args" is first.
+# Use case is if "engine" is "/usr/bin/flatpak"
+# and "extra" is the flatpak source port to run.
+if [[ "$(jq ".$preset | has(\"extra\")" "$RUNDOOMPRESETS")" == "true" ]]; then
+	readarray -t extra < <(jq -r ".$preset.extra[]" "$RUNDOOMPRESETS")
+	if [ ${#extra[@]} != 0 ]; then
+		args=("${args[@]}" "${extra[@]}")
+	fi
+fi
+
 iwad="$(jq -r ".$preset.iwad" "$RUNDOOMPRESETS")"
 
 if [[ "$iwad" != "null" ]]; then
@@ -74,13 +84,6 @@ if [[ "$(jq ".$preset | has(\"bex\")" "$RUNDOOMPRESETS")" == "true" ]]; then
 	if [ ${#bex[@]} != 0 ]; then
 		args+=("-bex")
 		args=("${args[@]}" "${bex[@]}")
-	fi
-fi
-
-if [[ "$(jq ".$preset | has(\"extra\")" "$RUNDOOMPRESETS")" == "true" ]]; then
-	readarray -t extra < <(jq -r ".$preset.extra[]" "$RUNDOOMPRESETS")
-	if [ ${#extra[@]} != 0 ]; then
-		args=("${args[@]}" "${extra[@]}")
 	fi
 fi
 

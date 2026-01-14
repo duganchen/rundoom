@@ -7,23 +7,23 @@ fi
 
 # https://web.archive.org/web/20230324055145/https://wiki.bash-hackers.org/howto/getopts_tutorial
 # https://mywiki.wooledge.org/BashFAQ/035#Complex_nonstandard_add-on_utilities
-while getopts :p: opt; do
+while getopts p: opt; do
 	case $opt in
 	p)
 		preset="$OPTARG"
 		;;
 	*)
-		echo rundoom \[-p preset\] -- engine arguments
+		echo rundoom \[-p preset\] [engine arguments]
 		exit 0
 		;;
 	esac
 done
 
-shift "$((OPTIND-1))"
+shift "$((OPTIND - 1))"
 
 if [[ "$preset" == "" ]]; then
-	preset=$(jq -r 'keys[]' "$RUNDOOMPRESETS" |
-		fzf --preview "jq .{} $RUNDOOMPRESETS" --preview-window=right,75%)
+	readarray -t presets < <(jq -r 'keys[]' "$RUNDOOMPRESETS")
+	preset="$(zenity --list --title='DOOM Presets' --column='DOOM Preset' "${presets[@]}")"
 fi
 
 if [[ "$preset" == "" ]]; then

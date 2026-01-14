@@ -1,6 +1,10 @@
 # RUNDOOM
 
-A Classic-DOOM launcher for the FISH shell.
+A Classic-DOOM launcher.
+
+Target platforms are:
+1. FISH shell
+2. Steam Deck
 
 ## Usage
 
@@ -16,8 +20,7 @@ DOOM2 with:
 * [The high resolution Doom sound effects pack](https://www.perkristian.net/game_doom-sfx.shtml)
 * [Doom 2 Minor Sprite Fixing Project](https://www.doomworld.com/forum/topic/62403-doom-2-minor-sprite-fixing-project-v20-release-updated-112822/)
 
-Using a powerful text editor that auto-completes file paths and supports json schemas (and using the
-provided rundoompresets_schema.json), I translate that to the following json configuration file:
+Using a powerful text editor that auto-completes file paths and supports json schemas (and using the provided rundoompresets_schema.json), I translate that to the following json configuration file:
 
     {
         "heretic": {
@@ -45,18 +48,15 @@ provided rundoompresets_schema.json), I translate that to the following json con
 
 The command-line format is:
 
-    rundoom [-p <preset>] -- <any extra arguments>
+    rundoom [-p <preset>] <any extra arguments>
 
-The -p (preset) option is integrated with FISH's completion system. This is the intended way to use rundoom.
-
-You'll notice that the next time you use rundoom, FISH will autocomplete the command to the last preset
-you used.
+The -p (preset) option is integrated with FISH's completion system. You'll notice that the next time you use rundoom, FISH will autocomplete the command to the last preset you used.
 
 ![FISH completion](screenshots/rundoom_completion.png)
 
-Running *rundoom* without arguments gives you a picker. Looks cool, but really just an experiment that I threw in.
+Running *rundoom* without arguments gives you a picker. This is intended for a Steam Deck. You'll have to install the jq dependency and set the environment variable (probably in ~/.config/environment.d), but then you're set! Enjoy the mouse-friendly GUI selection list.
 
-![Picker](screenshots/rundoom_picker.png)
+![list dialog](screenshots/zenity.png)
 
 ## Setup
 
@@ -64,23 +64,19 @@ Copy completions/rundoom.fish to ~/.config/fish/completions.
 
 Copy bin/rundoom to a directory to ~/.local/bin, which you should have in your PATH.
 
-Set the RUNDOOMPRESETS to be the path to the json file you're using for the presets. If the file is
-~/Documents/rundoom/rundoompresets.json, then you do:
+Set the RUNDOOMPRESETS to be the path to the json file you're using for the presets. If the file is ~/Documents/rundoom/rundoompresets.json, then you do the following to set it up for FISH:
 
     set -x RUNDOOMPRESETS ~/Documents/rundoom/rundoompresets.json
 
 ## Requirements
 
 * [jq](https://jqlang.org/)
-* [fzf](https://junegunn.github.io/fzf/)
 
 ## Misc Notes
 
-Put IWADs anywhere (~/.local/share/games/doom is as good a place as any)
-and set DOOMWADDIR to that directory.
+Put IWADs anywhere (~/.local/share/games/doom is as good a place as any) and set DOOMWADDIR to that directory.
 
-Most software will find your IWADs if you just put them in /usr/share/games/doom but there are exceptions. As of this writing, SLADE is one.
-Everything recognizes DOOMWADDIR.
+Most software will find your IWADs if you just put them in /usr/share/games/doom but there are exceptions. As of this writing, SLADE is one. Everything recognizes DOOMWADDIR.
 
 On my system, with [DOOM + DOOM II](https://store.steampowered.com/app/2280/DOOM__DOOM_II/) and [Heretic + Hexen](https://store.steampowered.com/app/3286930/Heretic__Hexen/) installed, the specific IWADs are:
 
@@ -92,9 +88,7 @@ On my system, with [DOOM + DOOM II](https://store.steampowered.com/app/2280/DOOM
 * ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/hexen/HEXEN.WAD
 * ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/hexendk/HEXDD.WAD
 
-Put soundfonts in ~/.local/share/soundfonts. WOOF will find them there.
-From what I'm reading of its source code, DOSBOX Staging will too. Then
-set everything else up to find them in that directory.
+Put soundfonts in ~/.local/share/soundfonts. WOOF will find them there. (Side-note: from what I'm reading of its source code, DOSBOX Staging will too.) Then set your source ports up to find them in that directory.
 
 I recommend at least trying the following:
 

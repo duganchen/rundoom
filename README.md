@@ -94,7 +94,7 @@ I recommend at least trying the following:
 
 * [Reality](https://falcosoft.hu/softwares.html#midiplayer)
 * [Arachno](https://www.arachnosoft.com/main/soundfont.php)
-* {GeneralUser GS}(https://schristiancollins.com/generaluser.php)
+* [GeneralUser GS](https://schristiancollins.com/generaluser.php)
 
 Apart from working well with DOOM, they are also good retrogaming soundfonts in general, because they have GS support.
 

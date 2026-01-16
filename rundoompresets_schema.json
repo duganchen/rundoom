@@ -9,12 +9,16 @@
             "description": "rundoom script argument",
             "type": "object",
             "properties": {
-                "iwad": {
-                    "description": "-iwad",
-                    "type": "string"
-                },
                 "engine": {
                     "description": "EXE",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "description",
+                    "type": "string"
+                },
+                "iwad": {
+                    "description": "-iwad",
                     "type": "string"
                 },
                 "file": {
@@ -46,7 +50,8 @@
                 }
             },
             "required": [
-                "engine"
+                "engine",
+                "description"
             ],
             "additionalProperties": false
         }

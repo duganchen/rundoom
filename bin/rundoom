@@ -5,15 +5,29 @@ if [ ! -f "$RUNDOOMPRESETS" ]; then
 	exit 1
 fi
 
+help()
+{
+	echo rundoom \[-p preset\] \[engine arguments\]
+	echo
+	echo presets:
+	echo
+	jq -r 'to_entries[] | "\(.key),\(.value.description)"' "$RUNDOOMPRESETS" | awk -F, '{print $1" - "$2}'
+}
+
+
 # https://web.archive.org/web/20230324055145/https://wiki.bash-hackers.org/howto/getopts_tutorial
 # https://mywiki.wooledge.org/BashFAQ/035#Complex_nonstandard_add-on_utilities
-while getopts p: opt; do
+while getopts p:h opt; do
 	case $opt in
 	p)
 		preset="$OPTARG"
 		;;
+	h)
+		help
+		exit 0
+		;;
 	*)
-		echo rundoom \[-p preset\] [engine arguments]
+		help
 		exit 0
 		;;
 	esac
@@ -22,8 +36,8 @@ done
 shift "$((OPTIND - 1))"
 
 if [[ "$preset" == "" ]]; then
-	readarray -t presets < <(jq -r 'keys[]' "$RUNDOOMPRESETS")
-	preset="$(zenity --list --title='DOOM Presets' --column='DOOM Preset' "${presets[@]}")"
+	readarray -t presets < <(jq -r 'to_entries[] | .key, .value.description' "$RUNDOOMPRESETS")
+	preset="$(zenity --list --title='DOOM Presets' --column='Preset' --column='Description' "${presets[@]}")"
 fi
 
 if [[ "$preset" == "" ]]; then

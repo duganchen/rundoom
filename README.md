@@ -28,7 +28,8 @@ Using a powerful text editor that auto-completes file paths and supports json sc
             "file": [
                 "/home/dugan/archives/pwads/HRSPFX10/HRSPFX10.WAD",
                 "/home/dugan/archives/pwads/HRSPFX10/HRWIDE10.WAD"
-            ]
+            ],
+            "description": "Heretic"
         },
         "gdturbo": {
             "engine": "/home/dugan/Applications/Woof-15.3.0-Linux.appimage",
@@ -40,7 +41,8 @@ Using a powerful text editor that auto-completes file paths and supports json sc
             ],
             "deh": [
                 "/home/dugan/archives/pwads/sprfix20/D2SPFX20.WAD"
-            ]
+            ],
+            "description": "Going Down Turbo"
         }
     }
 

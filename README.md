@@ -3,6 +3,7 @@
 A Classic-DOOM launcher.
 
 Target platforms are:
+
 1. FISH shell
 2. Steam Deck
 
@@ -11,16 +12,19 @@ Target platforms are:
 I'm going to get myself set up to play the following:
 
 Heretic with:
-* [International Heretic](https://jnechaevsky.github.io/inter-doom/)
-* [Heretic Minor Sprite Fixing and Widescreen-Friendly Project](https://www.doomworld.com/forum/topic/64778-heretic-minor-sprite-fixing-and-widescreen-friendly-project-v10-release/)
+
+- [International Heretic](https://jnechaevsky.github.io/inter-doom/)
+- [Heretic Minor Sprite Fixing and Widescreen-Friendly Project](https://www.doomworld.com/forum/topic/64778-heretic-minor-sprite-fixing-and-widescreen-friendly-project-v10-release/)
 
 DOOM2 with:
-* [Woof](https://fabiangreffrath.github.io/woof/)
-* [Going Down Turbo](https://doomwiki.org/wiki/Going_Down:_Turbo)
-* [The high resolution Doom sound effects pack](https://www.perkristian.net/game_doom-sfx.shtml)
-* [Doom 2 Minor Sprite Fixing Project](https://www.doomworld.com/forum/topic/62403-doom-2-minor-sprite-fixing-project-v20-release-updated-112822/)
 
-Using a powerful text editor that auto-completes file paths and supports json schemas (and using the provided rundoompresets_schema.json), I translate that to the following json configuration file:
+- [Woof](https://fabiangreffrath.github.io/woof/)
+- [Going Down Turbo](https://doomwiki.org/wiki/Going_Down:_Turbo)
+- [The high resolution Doom sound effects pack](https://www.perkristian.net/game_doom-sfx.shtml)
+- [Doom 2 Minor Sprite Fixing Project](https://www.doomworld.com/forum/topic/62403-doom-2-minor-sprite-fixing-project-v20-release-updated-112822/)
+
+Using a powerful text editor that auto-completes file paths and supports json schemas (and using the provided
+rundoompresets_schema.json), I translate that to the following json configuration file:
 
     {
         "heretic": {
@@ -52,11 +56,14 @@ The command-line format is:
 
     rundoom [-p <preset>] <any extra arguments>
 
-The -p (preset) option is integrated with FISH's completion system. You'll notice that the next time you use rundoom, FISH will autocomplete the command to the last preset you used.
+The -p (preset) option is integrated with FISH's completion system. You'll notice that the next time you use rundoom,
+FISH will autocomplete the command to the last preset you used.
 
 ![FISH completion](screenshots/rundoom_completion.png)
 
-Running *rundoom* without arguments gives you a picker. This is intended for a Steam Deck. You'll have to install the jq dependency and set the environment variable (probably in ~/.config/environment.d), but then you're set! Enjoy the mouse-friendly GUI selection list.
+Running _rundoom_ without arguments gives you a picker. This is intended for a Steam Deck. You'll have to install the jq
+dependency and set the environment variable (probably in ~/.config/environment.d), but then you're set! Enjoy the
+mouse-friendly GUI selection list.
 
 ![list dialog](screenshots/zenity.png)
 
@@ -66,37 +73,41 @@ Copy completions/rundoom.fish to ~/.config/fish/completions.
 
 Copy bin/rundoom to a directory to ~/.local/bin, which you should have in your PATH.
 
-Set the RUNDOOMPRESETS to be the path to the json file you're using for the presets. If the file is ~/Documents/rundoom/rundoompresets.json, then you do the following to set it up for FISH:
+Set the RUNDOOMPRESETS to be the path to the json file you're using for the presets. If the file is
+~/Documents/rundoom/rundoompresets.json, then you do the following to set it up for FISH:
 
     set -x RUNDOOMPRESETS ~/Documents/rundoom/rundoompresets.json
 
 ## Requirements
 
-* [jq](https://jqlang.org/)
+- [jq](https://jqlang.org/)
 
 ## Misc Notes
 
 Put IWADs anywhere (~/.local/share/games/doom is as good a place as any) and set DOOMWADDIR to that directory.
 
-Most software will find your IWADs if you just put them in /usr/share/games/doom but there are exceptions. As of this writing, SLADE is one. Everything recognizes DOOMWADDIR.
+Most software will find your IWADs if you just put them in /usr/share/games/doom but there are exceptions. As of this
+writing, SLADE is one. Everything recognizes DOOMWADDIR.
 
-On my system, with [DOOM + DOOM II](https://store.steampowered.com/app/2280/DOOM__DOOM_II/) and [Heretic + Hexen](https://store.steampowered.com/app/3286930/Heretic__Hexen/) installed, the specific IWADs are:
+On my system, with [DOOM + DOOM II](https://store.steampowered.com/app/2280/DOOM__DOOM_II/) and
+[Heretic + Hexen](https://store.steampowered.com/app/3286930/Heretic__Hexen/) installed, the specific IWADs are:
 
-* ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/DOOM.WAD
-* ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/doom2/DOOM2.WAD
-* ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/plutonia/PLUTONIA.WAD
-* ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/tnt/TNT.WAD
-* ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/heretic/HERETIC.WAD
-* ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/hexen/HEXEN.WAD
-* ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/hexendk/HEXDD.WAD
+- ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/DOOM.WAD
+- ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/doom2/DOOM2.WAD
+- ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/plutonia/PLUTONIA.WAD
+- ~/.local/share/Steam/steamapps/common/Ultimate\ Doom/base/tnt/TNT.WAD
+- ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/heretic/HERETIC.WAD
+- ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/hexen/HEXEN.WAD
+- ~/.local/share/Steam/steamapps/common/Heretic\ +\ Hexen/dos/base/hexendk/HEXDD.WAD
 
-Put soundfonts in ~/.local/share/soundfonts. WOOF will find them there. (Side-note: from what I'm reading of its source code, DOSBOX Staging will too.) Then set your source ports up to find them in that directory.
+Put soundfonts in ~/.local/share/soundfonts. WOOF will find them there. (Side-note: from what I'm reading of its source
+code, DOSBOX Staging will too.) Then set your source ports up to find them in that directory.
 
 I recommend at least trying the following:
 
-* [Reality](https://falcosoft.hu/softwares.html#midiplayer)
-* [Arachno](https://www.arachnosoft.com/main/soundfont.php)
-* [GeneralUser GS](https://schristiancollins.com/generaluser.php)
+- [Reality](https://falcosoft.hu/softwares.html#midiplayer)
+- [Arachno](https://www.arachnosoft.com/main/soundfont.php)
+- [GeneralUser GS](https://schristiancollins.com/generaluser.php)
 
 Apart from working well with DOOM, they are also good retrogaming soundfonts in general, because they have GS support.
 

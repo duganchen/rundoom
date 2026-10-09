@@ -47,10 +47,6 @@
                     "items": {
                         "type": "string"
                     }
-                },
-                "$schema": {
-                    "type": "string",
-                    "description": "JSON Schema reference"
                 }
             },
             "required": [
@@ -58,6 +54,10 @@
                 "description"
             ],
             "additionalProperties": false
+        },
+        "\\$schema": {
+            "type": "string",
+            "description": "JSON Schema reference"
         }
     },
     "additionalProperties": false

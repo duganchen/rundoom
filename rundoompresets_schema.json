@@ -47,6 +47,10 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                "$schema": {
+                    "type": "string",
+                    "description": "JSON Schema reference"
                 }
             },
             "required": [

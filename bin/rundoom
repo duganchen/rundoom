@@ -5,15 +5,13 @@ if [ ! -f "$RUNDOOMPRESETS" ]; then
 	exit 1
 fi
 
-help()
-{
+help() {
 	echo rundoom \[-p preset\] \[engine arguments\]
 	echo
 	echo presets:
 	echo
 	jq -r 'to_entries[] | "\(.key),\(.value.description)"' "$RUNDOOMPRESETS" | awk -F, '{print $1" - "$2}'
 }
-
 
 # https://web.archive.org/web/20230324055145/https://wiki.bash-hackers.org/howto/getopts_tutorial
 # https://mywiki.wooledge.org/BashFAQ/035#Complex_nonstandard_add-on_utilities
@@ -74,16 +72,12 @@ if [[ "$iwad" != "null" ]]; then
 	args+=("-iwad" "$iwad")
 fi
 
-if [[ "$(jq ".$preset | has(\"file\")" "$RUNDOOMPRESETS")" == "true" ]]; then
-	# https://stackoverflow.com/a/45534924
-	readarray -t wads < <(jq -r ".$preset.file[]" "$RUNDOOMPRESETS")
-	# https://serverfault.com/a/477506
-	if [ ${#wads[@]} != 0 ]; then
-		args+=("-file")
-		args=("${args[@]}" "${wads[@]}")
-	fi
-fi
-
+# Doing -deh first because I tested the following command-line for Going Down Turbo:
+# ~/Applications/Woof.AppImage \
+#	-deh sprfix20/D2DEHFIX.DEH \
+#	-file pk_doom_sfx/pk_doom_sfx_20120224.wad sprfix20/D2SPFX20.WAD gdturbo/gdturbo.wad
+# Load-order is Perkristians' sounds and the Minor Sprite Fixing Project. Then the megawad.
+# This doesn't break the red Spider Mastermind on level 29.
 if [[ "$(jq ".$preset | has(\"deh\")" "$RUNDOOMPRESETS")" == "true" ]]; then
 	readarray -t dehacked < <(jq -r ".$preset.deh[]" "$RUNDOOMPRESETS")
 	if [ ${#dehacked[@]} != 0 ]; then
@@ -98,6 +92,16 @@ if [[ "$(jq ".$preset | has(\"bex\")" "$RUNDOOMPRESETS")" == "true" ]]; then
 	if [ ${#bex[@]} != 0 ]; then
 		args+=("-bex")
 		args=("${args[@]}" "${bex[@]}")
+	fi
+fi
+
+if [[ "$(jq ".$preset | has(\"file\")" "$RUNDOOMPRESETS")" == "true" ]]; then
+	# https://stackoverflow.com/a/45534924
+	readarray -t wads < <(jq -r ".$preset.file[]" "$RUNDOOMPRESETS")
+	# https://serverfault.com/a/477506
+	if [ ${#wads[@]} != 0 ]; then
+		args+=("-file")
+		args=("${args[@]}" "${wads[@]}")
 	fi
 fi
 

@@ -27,6 +27,7 @@ Using a powerful text editor that auto-completes file paths and supports json sc
 rundoompresets_schema.json), I translate that to the following json configuration file:
 
     {
+        "$schema": "https://raw.githubusercontent.com/duganchen/rundoom/refs/heads/main/rundoompresets_schema.json",
         "heretic": {
             "engine": "/home/dugan/Applications/inter-heretic-8.3-linux.appimage",
             "file": [
@@ -61,9 +62,9 @@ FISH will autocomplete the command to the last preset you used.
 
 ![FISH completion](screenshots/rundoom_completion.png)
 
-Running _rundoom_ without arguments gives you a picker. This is intended for a Steam Deck. You'll have to install the jq
-dependency and set the environment variable (probably in ~/.config/environment.d), but then you're set! Enjoy the
-mouse-friendly GUI selection list.
+Running _rundoom_ without arguments gives you a picker. This is intended for a Steam Deck. You'll have to set the
+environment variable (probably in ~/.config/environment.d), but then you're set! Enjoy the mouse-friendly GUI selection
+list.
 
 ![list dialog](screenshots/zenity.png)
 

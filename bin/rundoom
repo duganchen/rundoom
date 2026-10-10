@@ -10,7 +10,7 @@ help() {
 	echo
 	echo presets:
 	echo
-	jq -r 'to_entries[] | "\(.key),\(.value.description)"' "$RUNDOOMPRESETS" | awk -F, '{print $1" - "$2}'
+	jq -r 'del(."$schema") | to_entries[] | "\(.key),\(.value.description)"' "$RUNDOOMPRESETS" | awk -F, '{print $1" - "$2}'
 }
 
 # https://web.archive.org/web/20230324055145/https://wiki.bash-hackers.org/howto/getopts_tutorial

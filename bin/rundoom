@@ -34,8 +34,9 @@ done
 shift "$((OPTIND - 1))"
 
 if [[ "$preset" == "" ]]; then
-	readarray -t presets < <(jq -r 'to_entries[] | .key, .value.description' "$RUNDOOMPRESETS")
-	preset="$(zenity --list --title='DOOM Presets' --column='Preset' --column='Description' "${presets[@]}")"
+	# readarray -t presets < <(jq -r 'to_entries[] | .key, .value.description' "$RUNDOOMPRESETS")
+	readarray -t presets < <(jq -r 'del(."$schema") | to_entries[] | .key' "$RUNDOOMPRESETS")
+	preset="$(zenity --list --title='DOOM Presets' --column='Preset' "${presets[@]}")"
 fi
 
 if [[ "$preset" == "" ]]; then
@@ -44,7 +45,7 @@ if [[ "$preset" == "" ]]; then
 fi
 
 if [[ "$(jq "has(\"$preset\")" "$RUNDOOMPRESETS")" == "false" ]]; then
-	echo Preset not found.
+	echo "Preset $preset not found."
 	exit 1
 fi
 

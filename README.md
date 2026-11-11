@@ -7,6 +7,18 @@ Target platforms are:
 1. FISH shell
 2. Steam Deck
 
+
+## Setup
+
+Copy completions/rundoom.fish to ~/.config/fish/completions.
+
+Copy bin/rundoom to a directory to ~/.local/bin, which you should have in your PATH.
+
+Set the RUNDOOMPRESETS to be the path to the json file you're using for the presets. If the file is
+~/Documents/rundoom/rundoompresets.json, then you do the following to set it up for FISH:
+
+    set -x RUNDOOMPRESETS ~/Documents/rundoom/rundoompresets.json
+
 ## Usage
 
 I'm going to get myself set up to play the following:
@@ -67,17 +79,6 @@ environment variable (probably in ~/.config/environment.d), but then you're set!
 list.
 
 ![list dialog](screenshots/zenity.png)
-
-## Setup
-
-Copy completions/rundoom.fish to ~/.config/fish/completions.
-
-Copy bin/rundoom to a directory to ~/.local/bin, which you should have in your PATH.
-
-Set the RUNDOOMPRESETS to be the path to the json file you're using for the presets. If the file is
-~/Documents/rundoom/rundoompresets.json, then you do the following to set it up for FISH:
-
-    set -x RUNDOOMPRESETS ~/Documents/rundoom/rundoompresets.json
 
 ## Requirements
 

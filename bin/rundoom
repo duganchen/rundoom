@@ -54,7 +54,7 @@ fi
 
 engine="$(jq -r ".$preset.engine" "$RUNDOOMPRESETS")"
 
-if [ ! -x "$engine" ]; then
+if ! command -v "$engine"; then
 	echo Engine not found.
 	exit 1
 fi

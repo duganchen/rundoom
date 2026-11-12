@@ -36,7 +36,7 @@ shift "$((OPTIND - 1))"
 if [[ "$preset" == "" ]]; then
 	# I gave up and used AI for this. Works with my Zenity 4.2.2 (Fedora 45)
 	# Thank you, DeepSeek V4.1 Flash at max reasoning.
-	preset="$(jq -r 'del(."$schema") | to_entries[] | .key, .value.description' rundoompresets.json |
+	preset="$(jq -r 'del(."$schema") | to_entries[] | .key, .value.description' "$RUNDOOMPRESETS" |
 		zenity --list --title='DOOM Presets' \
 			--column='Preset' --column='Description' \
 			--print-column=1)"

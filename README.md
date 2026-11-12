@@ -7,7 +7,6 @@ Target platforms are:
 1. FISH shell
 2. Steam Deck
 
-
 ## Setup
 
 Copy completions/rundoom.fish to ~/.config/fish/completions.
@@ -36,7 +35,8 @@ DOOM2 with:
 - [Doom 2 Minor Sprite Fixing Project](https://www.doomworld.com/forum/topic/62403-doom-2-minor-sprite-fixing-project-v20-release-updated-112822/)
 
 Using a powerful text editor that auto-completes file paths and supports json schemas (and using the provided
-rundoompresets_schema.json), I translate that to the following json configuration file (in this case, named rundoompresents.json):
+rundoompresets_schema.json), I translate that to the following json configuration file (in this case, named
+rundoompresents.json):
 
     {
         "$schema": "https://raw.githubusercontent.com/duganchen/rundoom/refs/heads/main/rundoompresets_schema.json",
@@ -82,7 +82,12 @@ list.
 
 ## Requirements
 
-- [jq](https://jqlang.org/)
+Developed against the following:
+
+- [jq](https://jqlang.org/) 1.8.2
+- Zenity 4.2.2
+
+None of the paths in my DOOM setup have spaces, so I haven't made an effort to support that.
 
 ## Misc Notes
 

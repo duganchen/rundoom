@@ -36,7 +36,7 @@ DOOM2 with:
 - [Doom 2 Minor Sprite Fixing Project](https://www.doomworld.com/forum/topic/62403-doom-2-minor-sprite-fixing-project-v20-release-updated-112822/)
 
 Using a powerful text editor that auto-completes file paths and supports json schemas (and using the provided
-rundoompresets_schema.json), I translate that to the following json configuration file:
+rundoompresets_schema.json), I translate that to the following json configuration file (in this case, named rundoompresents.json):
 
     {
         "$schema": "https://raw.githubusercontent.com/duganchen/rundoom/refs/heads/main/rundoompresets_schema.json",

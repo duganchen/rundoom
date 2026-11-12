@@ -34,9 +34,12 @@ done
 shift "$((OPTIND - 1))"
 
 if [[ "$preset" == "" ]]; then
-	# readarray -t presets < <(jq -r 'to_entries[] | .key, .value.description' "$RUNDOOMPRESETS")
-	readarray -t presets < <(jq -r 'del(."$schema") | to_entries[] | .key' "$RUNDOOMPRESETS")
-	preset="$(zenity --list --title='DOOM Presets' --column='Preset' "${presets[@]}")"
+	# I gave up and used AI for this. Works with my Zenity 4.2.2 (Fedora 45)
+	# Thank you, DeepSeek V4.1 Flash at max reasoning.
+	preset="$(jq -r 'del(."$schema") | to_entries[] | .key, .value.description' rundoompresets.json |
+		zenity --list --title='DOOM Presets' \
+			--column='Preset' --column='Description' \
+			--print-column=1)"
 fi
 
 if [[ "$preset" == "" ]]; then
@@ -53,6 +56,7 @@ engine="$(jq -r ".$preset.engine" "$RUNDOOMPRESETS")"
 
 if [ ! -x "$engine" ]; then
 	echo Engine not found.
+	exit 1
 fi
 
 declare -a args=()
